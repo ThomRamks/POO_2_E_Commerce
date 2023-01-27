@@ -2,8 +2,6 @@ package loja;
 
 import interfaces.IProduto;
 import interfaces.ISacola;
-import impl.produto.Produto;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,9 +30,9 @@ public class Sacola implements ISacola {
         return novaSacola;
     }
 
-    protected double valorFinal(HashMap<Produto, Integer> sacola) {
+    protected double valorFinal(HashMap<IProduto, Integer> sacola) {
         double total = 0;
-        for (Map.Entry<Produto, Integer> item : sacola.entrySet()) {
+        for (Map.Entry<IProduto, Integer> item : sacola.entrySet()) {
             total = total + (item.getValue() * item.getKey().getValor());
         }
         return total;
